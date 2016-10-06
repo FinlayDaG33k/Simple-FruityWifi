@@ -3,11 +3,11 @@
 exec > >(tee "simplefruitywifi-installer.log")
 exec 2>&1
 
-echo "#----------------------------------#";
-echo "|       FruityWifi Installer       |";
-echo "|        Made with Love by         |";
-echo "|           FinlayDaG33k           |";
-echo "#----------------------------------#";
+echo "#--------------------------------------#";
+echo "|         FruityWifi Installer         |";
+echo "|     Made with Love (and Bash) by     |";
+echo "|             FinlayDaG33k             |";
+echo "#--------------------------------------#";
 
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
