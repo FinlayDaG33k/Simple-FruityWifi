@@ -36,7 +36,19 @@ unzip master.zip
 
 echo "Now let's install it!"
 echo "#-------------------------------------------------------#";
-sudo FruityWifi-master/install-FruityWiFi.sh
+
+DISTRO=$(lsb_release -si 2>/dev/null || cat /etc/*release 2>/dev/null | head -n1 || uname -om);
+if [ "${DISTRO}" == "Kali" ]; then
+        echo "Detected Operating system is Kali Linux";
+        sudo FruityWifi-master/install-FruityWiFi-PHP7.sh
+elif [ "${DISTRO}" == "Parrot" ]; then
+        echo "Detected Operating system is ParrotOS";
+        sudo FruityWifi-master/install-FruityWiFi-PHP7.sh
+else
+        echo "Detected Operating system is Unknown, Sticking to generic Debian-like distros";
+        sudo FruityWifi-master/install-FruityWiFi.sh
+fi
+
 
 echo "Everything should be okay now!";
 echo "Headover to https://localhost:8443 and see the awesomeness!";
